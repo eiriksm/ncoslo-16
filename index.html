@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+
+ <head>
+  <meta charset="utf-8">
+
+  <title>That escalated quickly! Prototyping IoT with JavaScript</title>
+
+  <meta name="description" content="That escalated quickly! Prototyping IoT with JavaScript">
+  <meta name="author" content="Eirik S. Morland">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+   var link = document.createElement( 'link' );
+   link.rel = 'stylesheet';
+   link.type = 'text/css';
+   link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+   document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <style>
+    section.black h1 {
+      color: black;
+    }
+    section.black {
+      color: black;
+    }
+    .reveal blockquote {
+      background: rgba(255, 255, 255, 0.35);
+    }
+    .reveal blockquote a {
+      color: black;
+      text-decoration: underline;
+    }
+    section.dim a {
+      color: #fff;
+    }
+    section.dim {
+      background: rgba(0,0,0,.4);
+    }
+    .reveal pre {
+      box-shadow: none;
+    }
+    .max-stretch img {
+      width: 46%;
+    }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+ </head>
+
+ <body>
+
+  <div class="reveal">
+
+   <div class="slides">
+      <section data-markdown>
+        ## That escalated quickly!
+        ### Prototyping IoT with JavaScript
+
+        - Nodeconf Oslo 2016
+        - Eirik Stanghelle Morland
+        - [@orkj](https://twitter.com/orkj)
+      </section>
+      <section data-background="/img/esc1.gif">
+        <h3>Escalating</h3>
+      </section>
+      <section data-markdown>
+        # Eirik?
+
+        - Web developer from Trondheim, Norway
+        - Fan of beer, programming and GIFs
+        - Although a beer geek, not a beer snob (true story)
+      </section>
+      <section>
+        <h1>A story</h1>
+        <p>Based on real events</p>
+      </section>
+      <section>
+        <h2>Once upon a time there was a web developer called <s>Eirik</s> Eric</h2>
+      </section>
+      <section>
+        <h2>He was a PHP developer</h2>
+        <pre>
+          <code>strpos($haystack, $needle);
+
+in_array($needle, $haystack);</code>
+        </pre>
+      </section>
+      <section data-background="/img/overboil.gif">
+      </section>
+      <section data-markdown>
+        ## Plan
+
+        - Raspberry pi
+        - Wires
+        - ...?
+        - Profit?
+      </section>
+      <section data-background="/img/doing.gif">
+      </section>
+      <section>
+        <pre>
+          <code>
+            ReferenceError: $ is not defined
+                at Object.&lt;anonymous&gt; (/home/pi/test.js:1:63)
+                at Module._compile (module.js:444:26)
+                at Object.Module._extensions..js (module.js:462:10)
+                at Module.load (module.js:339:32)
+                at Function.Module._load (module.js:294:12)
+                at Function.Module.runMain (module.js:485:10)
+                at startup (node.js:111:16)
+                at node.js:799:3
+            pi@raspberrypi ~ $ vim test.js
+            pi@raspberrypi ~ $ node test.js
+            Temperature is 19.875
+          </code>
+        </pre>
+      </section>
+      <section>
+        <pre>
+          <code>setInterval(function() {
+  var file = '/var/www/index.php';
+  var contents = '&lt?php print "Temperature is ' + temp + '";'
+  require('fs').writeFileSync(file, contents);
+}, 1000);</code>
+        </pre>
+      </section>
+      <section data-background="/img/temp1.png">
+      </section>
+      <section>
+        <pre>
+          <code>&lt;meta http-equiv="refresh" content="5"></code>
+        </pre>
+        <h1 class="fragment">Continious deployment?</h1>
+      </section>
+      <section data-background="/img/every.jpg">
+      </section>
+      <section data-background="/img/esc2.gif" data-markdown>
+        ## It escalated
+      </section>
+      <section data-background="img/rt-temp.gif">
+      </section>
+      <section data-background="img/temp.gif">
+      </section>
+      <section data-markdown>
+        # Can we measure something else than temperature
+      </section>
+      <section data-background="/img/plops.gif">
+      </section>
+      <section data-background="/img/plop-graph.gif">
+      </section>
+      <section data-background="/img/esc3.gif" data-markdown>
+        # Escalation in progress
+      </section>
+      <section data-markdown>
+        > Well, Eric. This stuff sure is geeky. And I know you are always calling my new synthesizer projects geeky. But you know what would be even more geeky? If we combined these things. Make the fermentation of the beer feed midi notes into a synthesizer. Real-time
+
+        _Synth geek friend of Eric_
+      </section>
+      <section data-background="/img/mb.gif" data-markdown>
+        > Such interdisciplinary geekyness
+
+        _Eric_
+      </section>
+      <section data-background="/img/rs.gif" data-markdown>
+        > I know, right
+
+        _Synth geek friend of Eric_
+      </section>
+      <section data-background-video="/video/synth.mp4" data-background-video-muted data-background-video-loop	>
+      </section>
+      <section data-background-video="/video/plops.mp4" data-background-video-muted data-background-video-loop	>
+      </section>
+      <section data-markdown>
+        # What can we do with all this data?
+      </section>
+      <section data-markdown>
+        Without further ado:
+
+        [Requiem in A minor for flute and cello.](http://178.79.147.21/plops-to-midi/#eyJpbnN0cnVtZW50cyI6W3sibmFtZSI6IkJhc3MiLCJjdXJyZW50SW5zdHJ1bWVudCI6ImZsdXRlIiwib2Zmc2V0IjoiNSIsInN0b3AiOjEsImRlbGF5IjoxLCJ0b25lcyI6WyJBIiwiQiIsIkMiLCJEIiwiRSIsIkYiLCJHIl19LHsibmFtZSI6IkxlYWQiLCJjdXJyZW50SW5zdHJ1bWVudCI6ImNlbGxvIiwib2Zmc2V0IjoiMyIsInN0b3AiOjIsImRlbGF5IjowLCJ0b25lcyI6WyJBIiwiQiIsIkMiLCJEIiwiRSIsIkYiLCJHIl19XSwidHVuZSI6IjEiLCJ0b25lc0tleSI6MH0=)
+
+        Composer: Black IPA
+      </section>
+      <section>
+        <h1>Did it escalate?</h1>
+        <div class="max-stretch">
+          <img src="/img/overboil.gif">
+          <img src="/img/tempstack.png">
+        </div>
+      </section>
+      <section>
+        <h1>Another story</h1>
+
+        <h2>Once upon a time there was a web developer called <s>Eirik</s> Eric</h2>
+      </section>
+      <section>
+        <h1>He was a PHP developer</h1>
+        <pre><code>Parse error: syntax error, unexpected (T_PAAMAYIM_NEKUDOTAYIM)</code></pre>
+      </section>
+      <section>
+        <img class="stretch" src="/img/track.jpg" />
+        <h5>Bought when he was 20 years old, because he never got one as a kid</h5>
+      </section>
+      <section data-background="/img/track-info.jpg">
+      </section>
+      <section data-markdown>
+        Eric had a tradition with his brothers. Every christmas, they would do something geeky with this slot car track
+
+        This is 2 years ago
+      </section>
+      <section data-background-video="/video/racing.mp4" data-background-video-muted data-background-video-loop	>
+      </section>
+      <section data-background="/img/esc4.gif" data-markdown>
+        >But this Eric was also in the escalating business
+      </section>
+      <section data-background="/img/dash.gif">
+      </section>
+      <section>
+        <img class="stretch" src="/img/stack1.png" />
+      </section>
+      <section data-markdown>
+        # Theory
+
+        - Get camera working against all odds.
+        - Google frantically for getting it to "respond" over WebRTC
+        - Write signalling server for WebRTC
+        - Struggle with random connection errors for about 5 days.
+        - ...
+        - Profit?
+      </section>
+      <section>
+        <img class="stretch" src="/img/camera.jpg" />
+      </section>
+      <section data-markdown>
+        # Practice
+
+        - Download a package
+        - Find it supports WebRTC
+        - "View source"
+        - Find signalling server and wire up a standard WebRTC library
+      </section>
+      <section data-background="img/only.gif" data-markdown>
+        # It's just JavaScript
+      </section>
+      <section data-background-video="/video/crash.mp4" data-background-video-muted data-background-video-loop data-markdown>
+        ## 20 minutes later
+      </section>
+      <section data-background-video="/video/wireless.mp4" data-background-video-muted data-background-video-loop	data-markdown>
+        ## 35 minutes later
+      </section>
+      <section data-background="img/happy.gif" data-markdown>
+        ## Eric was happy
+      </section>
+      <section data-markdown data-background="img/sad.gif">
+        ## But also, Eric was sad.
+
+        ### Time for a new plan
+      </section>
+      <section data-background="img/esc5.gif" data-markdown>
+        # Did someone say escalate?
+      </section>
+      <section>
+        <img class="stretch" src="/img/stack2.png" />
+      </section>
+      <section>
+        <img class="stretch" src="/img/vr.jpg" />
+        <ul>
+          <li>Found a three.js plugin</li>
+          <li>Copy pasted some stuff</li>
+          <li>Wrote like 8 lines of code</li>
+        </ul>
+      </section>
+      <section data-background="/img/vr-drive2.gif" data-markdown>
+      </section>
+      <section data-background="img/esc6.gif" data-markdown>
+        ## I thought this was supposed to escalate?
+      </section>
+      <section><img class="stretch" src="/img/stack3.png" />
+      </section>
+      <section data-background="/img/vr.gif">
+      </section>
+      <section data-markdown>
+        # One problem with the "game"
+      </section>
+      <section data-background="img/hf.gif" data-markdown>
+        # The human factor
+      </section>
+      <section>
+        <img class="stretch" src="img/stack4.png">
+      </section>
+      <section data-markdown>
+        # Enter a new game mode
+      </section>
+      <section data-background-video="video/click.mp4" data-background-video-muted data-background-video-loop	data-markdown>
+      </section>
+      <section>
+        <img class="stretch" src="img/stack5.png">
+      </section>
+      <section>
+        <h1>Did it escalate?</h1>
+        <div class="max-stretch">
+          <img src="img/stack1.png">
+          <img src="img/stack5.png">
+        </div>
+      </section>
+      <section data-markdown>
+        # A message from Eric and Eric
+      </section>
+      <section data-background-video="/video/tracks.mp4" data-markdown>
+      </section>
+      <section data-markdown>
+        # Summary
+      </section>
+      <section>
+        <div class="max-stretch">
+          <img src="img/every.jpg">
+          <img src="img/only.gif">
+        </div>
+      </section>
+      <section data-background="img/1389808751_kid_in_skate_park.gif" data-markdown>
+        ## But also this
+      </section>
+      <section data-background="img/thx.gif">
+        <h1>Thank you!</h1>
+      </section>
+   </div>
+
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+
+   // Full list of configuration options available at:
+   // https://github.com/hakimel/reveal.js#configuration
+   Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+    // Optional reveal.js plugins
+    dependencies: [
+     { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+     { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+     { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+     { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+     { src: 'plugin/zoom-js/zoom.js', async: true },
+     { src: 'plugin/notes/notes.js', async: true }
+    ]
+   });
+
+  </script>
+
+ </body>
+</html>
