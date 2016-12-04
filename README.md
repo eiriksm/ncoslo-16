@@ -1,5 +1,9 @@
 # Nodeconf Oslo 2016, links
 
+## Video
+
+[https://opbeat.com/community/posts/that-escalated-quickly-prototyping-iot-with-javascript-by-eirik-morland/](https://opbeat.com/community/posts/that-escalated-quickly-prototyping-iot-with-javascript-by-eirik-morland/)
+
 ## Slides
 
 [http://eiriksm.github.io/ncoslo-16](http://eiriksm.github.io/ncoslo-16)
